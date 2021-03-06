@@ -13,11 +13,12 @@ function Wallpaper() {
 function TriCell({ l, x, y, ...props }) {
   const { innerWidth: width, innerHeight: height } = window
   const middle = width / 2 + (l * x) / 2
+  const altitude = l * Math.sqrt(3)
   const [left, top, right, bottom] = [
     middle - l / 2,
-    height - (l * Math.sqrt(3) * (y + 1)) / 2,
+    height - (altitude * (y + 1)) / 2,
     middle + l / 2,
-    height - (l * Math.sqrt(3) * y) / 2,
+    height - (altitude * y) / 2,
   ]
   const points =
     (x + y) % 2 != 0
