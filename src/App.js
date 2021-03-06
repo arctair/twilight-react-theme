@@ -1,5 +1,5 @@
 import GithubLink from './GithubLink'
-import Wallpaper from './Wallpaper'
+import Foreground from './svg/Foreground'
 
 function App() {
   return (
@@ -22,7 +22,9 @@ function App() {
       >
         Twilight&nbsp;React&nbsp;Theme
       </div>
-      <Wallpaper foreground='#020' />
+      <svg style={{ width: '100%', height: '100%' }}>
+        <Foreground cellSize={16} fill='#020' />
+      </svg>
       <GithubLink color='#BBB' />
     </div>
   )
