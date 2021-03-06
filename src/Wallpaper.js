@@ -1,13 +1,24 @@
 function Wallpaper() {
   return (
     <svg style={{ width: '100%', height: '100%' }}>
-      <TriCell l={50} x={0} y={0} fill='red' />
-      <TriCell l={50} x={0} y={1} fill='purple' />
-      <TriCell l={50} x={-1} y={0} fill='green' />
-      <TriCell l={50} x={-1} y={1} fill='yellow' />
-      <TriCell l={50} x={-2} y={0} fill='blue' />
+      <Foreground cellSize={16} />
     </svg>
   )
+}
+
+function Foreground({ cellSize }) {
+  const { innerWidth: windowWidth } = window
+  const left = Math.floor(-windowWidth / cellSize)
+  const right = Math.ceil(windowWidth / cellSize)
+  const cells = []
+  for (let x = left; x <= right; x += 1) {
+    for (let y = 0; y <= 12; y++) {
+      if (y < (-1 / 24) * x + 6 + Math.random() * 2) {
+        cells.push(<TriCell l={cellSize} x={x} y={y} fill='#113311' />)
+      }
+    }
+  }
+  return <>{cells}</>
 }
 
 function TriCell({ l, x, y, ...props }) {
