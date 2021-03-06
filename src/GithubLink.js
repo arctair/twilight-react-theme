@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function GithubLink() {
+function GithubLink({ color }) {
   const [hover, setHover] = useState(false)
   return (
     <>
@@ -13,9 +13,9 @@ function GithubLink() {
           margin: '0.5em',
           textDecoration: 'none',
           fontSize: '1.5em',
-          color: 'white',
+          color,
           ...(hover && {
-            textShadow: '0 0 3px white',
+            textShadow: `0 0 3px ${color}`,
           }),
         }}
         onMouseEnter={() => setHover(true)}
