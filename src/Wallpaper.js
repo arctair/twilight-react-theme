@@ -10,24 +10,25 @@ function Wallpaper() {
 
 function TriCell({ length, x, ...props }) {
   const { innerWidth: width, innerHeight: height } = window
-  const isInverted = x % 2 != 0
-  const points = isInverted
-    ? [
-        [width / 2 + (length * x) / 2, height],
-        [
-          width / 2 + length / 2 + (length * x) / 2,
-          height - (length * Math.sqrt(3)) / 2,
-        ],
-        [
-          width / 2 - length / 2 + (length * x) / 2,
-          height - (length * Math.sqrt(3)) / 2,
-        ],
-      ]
-    : [
-        [width / 2 + (length * x) / 2, height - (length * Math.sqrt(3)) / 2],
-        [width / 2 + length / 2 + (length * x) / 2, height],
-        [width / 2 - length / 2 + (length * x) / 2, height],
-      ]
+  const middle = width / 2 + (length * x) / 2
+  const [left, top, right, bottom] = [
+    middle - length / 2,
+    height - (length * Math.sqrt(3)) / 2,
+    middle + length / 2,
+    height,
+  ]
+  const points =
+    x % 2 != 0
+      ? [
+          [left, top],
+          [right, top],
+          [middle, bottom],
+        ]
+      : [
+          [left, bottom],
+          [right, bottom],
+          [middle, top],
+        ]
 
   return (
     <polygon
