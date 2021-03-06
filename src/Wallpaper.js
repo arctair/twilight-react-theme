@@ -15,7 +15,7 @@ function TriCell({ l, x, y, ...props }) {
   const middle = width / 2 + (l * x) / 2
   const [left, top, right, bottom] = [
     middle - l / 2,
-    height - (l * Math.sqrt(3)) / 2 - (l * Math.sqrt(3) * y) / 2,
+    height - (l * Math.sqrt(3) * (y + 1)) / 2,
     middle + l / 2,
     height - (l * Math.sqrt(3) * y) / 2,
   ]
