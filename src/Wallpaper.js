@@ -1,23 +1,23 @@
 function Wallpaper() {
   return (
     <svg style={{ width: '100%', height: '100%' }}>
-      <TriCell length={50} x={0} y={0} fill='red' />
-      <TriCell length={50} x={0} y={1} fill='purple' />
-      <TriCell length={50} x={-1} y={0} fill='green' />
-      <TriCell length={50} x={-1} y={1} fill='yellow' />
-      <TriCell length={50} x={-2} y={0} fill='blue' />
+      <TriCell l={50} x={0} y={0} fill='red' />
+      <TriCell l={50} x={0} y={1} fill='purple' />
+      <TriCell l={50} x={-1} y={0} fill='green' />
+      <TriCell l={50} x={-1} y={1} fill='yellow' />
+      <TriCell l={50} x={-2} y={0} fill='blue' />
     </svg>
   )
 }
 
-function TriCell({ length, x, y, ...props }) {
+function TriCell({ l, x, y, ...props }) {
   const { innerWidth: width, innerHeight: height } = window
-  const middle = width / 2 + (length * x) / 2
+  const middle = width / 2 + (l * x) / 2
   const [left, top, right, bottom] = [
-    middle - length / 2,
-    height - (length * Math.sqrt(3)) / 2 - (length * Math.sqrt(3) * y) / 2,
-    middle + length / 2,
-    height - (length * Math.sqrt(3) * y) / 2,
+    middle - l / 2,
+    height - (l * Math.sqrt(3)) / 2 - (l * Math.sqrt(3) * y) / 2,
+    middle + l / 2,
+    height - (l * Math.sqrt(3) * y) / 2,
   ]
   const points =
     (x + y) % 2 != 0
