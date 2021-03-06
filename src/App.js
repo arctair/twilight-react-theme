@@ -1,5 +1,6 @@
 import GithubLink from './GithubLink'
 import Foreground from './svg/Foreground'
+import Banner from './Banner'
 
 function App() {
   return (
@@ -9,19 +10,7 @@ function App() {
         backgroundImage: 'linear-gradient(#202, #113)',
       }}
     >
-      <div
-        style={{
-          color: '#BBB',
-          textTransform: 'lowercase',
-          position: 'absolute',
-          left: '50%',
-          top: '33%',
-          transform: 'translate(-50%, -50%)',
-          fontSize: '2em',
-        }}
-      >
-        Twilight&nbsp;React&nbsp;Theme
-      </div>
+      <Banner color='#BBB' />
       <svg style={{ width: '100%', height: '100%' }}>
         <Foreground cellSize={16} fill='#020' />
       </svg>
